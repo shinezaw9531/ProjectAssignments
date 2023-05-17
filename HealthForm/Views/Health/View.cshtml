@@ -1,0 +1,112 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model HealthForm.Models.UpdateHealthViewModel
+@{
+}
+
+
+<h1 class="text-center">Edit Online Registration Form</h1>
+<div class="card p-3">
+    <form action="View" class="row g-3" method="post">
+        <div class="col-md-12">
+            <label for="name" class="form-label">*Name</label>
+            <input asp-for="Id" type="text" class="form-control rounded-pill" readonly>
+        </div>
+        <div class="col-md-6">
+            <label for="name" class="form-label">*Name</label>
+            <input asp-for="Name" type="text" class="form-control rounded-pill" placeholder="Name">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label for="businessemail" class="form-label">*Business Email</label>
+            <input asp-for="BusinessEmail" type="email" class="form-control rounded-pill" placeholder="Business Email">
+            <span asp-validation-for="BusinessEmail" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label for="companyname" class="form-label">*Company Name</label>
+            <input asp-for="CompanyName" type="text" class="form-control rounded-pill" placeholder="Company Name">
+            <span asp-validation-for="CompanyName" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label for="designation" class="form-label">Designation</label>
+            <input asp-for="Designation" type="text" class="form-control rounded-pill" placeholder="Designation">
+        </div>
+        <div class="col-md-6">
+            <label for="businessnumber" class="form-label">*Business Number</label>
+            <input asp-for="BusinessNumber" type="text" class="form-control rounded-pill" placeholder="Business Number">
+            <span asp-validation-for="BusinessNumber" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label for="LicensePlate" class="form-label">License Plate</label>
+            <input asp-for="LicensePlate" type="text" class="form-control rounded-pill" placeholder="License Plate">
+        </div>
+
+        <div class="callout callout-info">
+            <div class="col-md-12">
+                <label for="nricfinnumber" class="form-label">NRIC/FIN Number (Last 4 characters)</label>
+                <input asp-for="NricFinNumber" type="text" class="form-control rounded-pill" placeholder="Comment">
+            </div>
+        </div>
+
+        <div class="callout callout-info">
+            <p>1. Are you currently under a Quarantine Order, Stay-Home Notice?</p>
+            <div class="form-check form-check-inline">
+                <input asp-for="Quarantine" class="form-check-input" type="radio" value="true" checked="@(Model.Quarantine ? false : true)">
+                <label class="form-check-label" for="yes">
+                    Yes
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input asp-for="Quarantine" class="form-check-input" type="radio" value="false" checked="@(Model.Quarantine ? false : true)">
+                <label class="form-check-label" for="no">
+                    No
+                </label>
+            </div>
+        </div>
+        <div class="callout callout-info">
+            <p>2. Have you had close contact with a confirmed COVID-19 case in the past 14 days?</p>
+            <div class="form-check form-check-inline">
+                <input asp-for="Contact" class="form-check-input" type="radio" value="true" checked="@(Model.Contact ? false : true)">
+                <label class="form-check-label" for="yes">
+                    Yes
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input asp-for="Contact" class="form-check-input" type="radio" value="false" checked="@(Model.Contact ? false : true)">
+                <label class="form-check-label" for="no">
+                    No
+                </label>
+            </div>
+        </div>
+        <div class="callout callout-info">
+            <p>3. Do you have any fever or flu-like symptoms?</p>
+            <div class="form-check form-check-inline">
+                <input asp-for="FeverFluSymptoms" class="form-check-input" type="radio" value="true" checked="@(Model.FeverFluSymptoms ? false : true)">
+                <label class="form-check-label" for="yes">
+                    Yes
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input asp-for="FeverFluSymptoms" class="form-check-input" type="radio" value="false" checked="@(Model.FeverFluSymptoms ? false : true)">
+                <label class="form-check-label" for="no">
+                    No
+                </label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-check">
+                <input asp-for="OnlineForm" class="form-check-input" type="checkbox">
+                <label class="form-check-label" for="gridCheck">
+                    By completing this online form, I acknowledge and consent to the collection, use, and disclosure of my personal data for security verification, access control and safety purposes.
+                </label>
+            </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary rounded-pill px-4">Submit</button>
+
+            <button type="submit" class="btn btn-danger rounded-pill px-4 mx-2" asp-action="Delete" asp-controller="Health">Delete</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<HealthForm.Models.Health>
+@{
+}
+
+<h1>Health Lists</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>BusinessEmail</th>
+            <th>CompanyName</th>
+            <th>Designation</th>
+            <th>BusinessNumber</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var health in Model)
+        {
+            <tr>
+                <td>@health.Id</td>
+                <td>@health.Name</td>
+                <td>@health.BusinessEmail</td>
+                <td>@health.CompanyName</td>
+                <td>@health.Designation</td>
+                <td>@health.BusinessNumber</td>
+                <td><a href="Health/View/@health.Id">View</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
