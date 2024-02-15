@@ -51,7 +51,7 @@ namespace HealthForm.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return RedirectToAction("Add");
+            return View("Add");
         }
 
         [HttpGet]
